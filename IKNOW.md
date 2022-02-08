@@ -11,3 +11,18 @@
    - verbose_name: 필드 레이블, 미지정시 필드명이 사용된다.
    - help_text: 필드 입력 도움말
 3. models.ImageField는 pillow 설치가 필요
+### django admin
+1. django admin: 장고에서 제공하는 기본 앱
+   - django.contrib.admin에 있다.
+   - 서비스 초기에 관리도구로 좋다. -> 엔드유저 서비스에 집중가능
+   ex) path('admin/', admin.site.urls) -> admin/ URL을 django admin앱에서 처리하겠다.
+2. admin 주소로 변경하지 않으면 '/admin/'으로 설정된다.
+   - django-admin-honeypot으로 가짜 어드민 사이트 설정가능
+3. 생성한 앱을 admin.py에 등록해서 관리페이지에서 관제할 수 있다.
+   1) admin.site.register(모델)
+   2) class 모델Admin(admin.ModelAdmin), admin.site.register(모델, 모델Admin)
+   3) @admin.register(모델) 장식자 사용
+4. list_display: 모델 리스트에 출력할 형태 지정
+5. list_display에서 함수를 지정한 경우에는 인자없는 함수만 가능
+6. search_fields: admin내 검색 ui를 통해 db를 통한 where 쿼리 대상 필드 리스트
+7. list_filter: 지정 필터링 옵션
