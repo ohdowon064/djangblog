@@ -26,3 +26,24 @@
 5. list_display에서 함수를 지정한 경우에는 인자없는 함수만 가능
 6. search_fields: admin내 검색 ui를 통해 db를 통한 where 쿼리 대상 필드 리스트
 7. list_filter: 지정 필터링 옵션
+### static & media 파일
+1. static 파일
+   - 개발 리소스로서의 정적 파일(js, css, image 등)
+   - 앱/프로젝트 단위로 저장/서빙
+2. media 파일
+   - FileField/ImageField를 통해 저장한 모든 파일
+   - DB필드에는 저장경로를 저장, 파일은 파일스토리지에 저장
+     -> 실제로는 문자열을 저장하는 필드
+   - 프로젝트 단위로 저장/서빙
+3. django.conf.settings를 사용해야한다.
+   - django.conf.global_settings와 내 프로젝트 settings가 합쳐진다.
+4. 파일이 많으면 노드가 많아서 파일을 찾는데 시간이 걸린다.
+   - 하위 폴더가 많은 것은 상관없으므로 하위 폴더를 많이 두는 식으로 개발하는 것이 낫다.
+   - upload_to 옵션을 사용할 수 있다.
+   - 해당 옵션은 파일을 저장할 때 적용된다.
+5. 동일파일일 경우 자동 더미문자로 덮어쓰기를 방지한다.
+6. 새로운 파일을 업로드하면 기존 파일을 자동으로 삭제안함
+   1) FileField에서 삭제하도록 설정
+   2) 참조하지 않는 파일을 삭제하도록 배치프로그램 설정
+7. file upload handler 
+   - 관련 설정 settings.FILE_UPLOAD_MAX_MEMORY_SIZE
