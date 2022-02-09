@@ -1,3 +1,4 @@
 djangblog/settings.py
 db.sqlite3
 .idea
+.ipynb_checkpoints

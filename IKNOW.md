@@ -47,3 +47,15 @@
    2) 참조하지 않는 파일을 삭제하도록 배치프로그램 설정
 7. file upload handler 
    - 관련 설정 settings.FILE_UPLOAD_MAX_MEMORY_SIZE
+### QuerySet
+1. queryset은 lazy하다.
+   - 데이터가 필요한 시점에 query한다.
+     - 쿼리셋을 만드는 동에는 db접근하지 않는다.
+   - 슬라이싱을 하면 쿼리에 limit이 적용된다.
+     - Post.objects.all().order_by("id")[:2] -> limit 2가 쿼리에 들어간다.
+2. queryset은 lazy하므로 chaining이 가능하다.
+3. 데이터가 필요한 시점은 언제인가?
+   1. queryset
+   2. print(queryset)
+   3. list(queryset)
+   4. for instance in queryset: print(instance)
