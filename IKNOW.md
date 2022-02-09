@@ -59,3 +59,8 @@
    2. print(queryset)
    3. list(queryset)
    4. for instance in queryset: print(instance)
+### view
+   1. request 인자
+      - request.GET
+      - request.POST
+      - request.FILES
