@@ -64,3 +64,7 @@
       - request.GET
       - request.POST
       - request.FILES
+### Queryset Ordering
+   1. [start:end:step] 슬라이싱에서 step이 들어가면 반환값이 쿼리셋이 아닌 리스트로 바뀐다.
+      - 따라서 스텝이 들어가는 순간 리스트로 바뀌므로 lazy하지않다.
+      - 스텝을 추가하면 그 순간 데이터베이스로 쿼리를 던진다.
