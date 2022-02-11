@@ -68,3 +68,11 @@
    1. [start:end:step] 슬라이싱에서 step이 들어가면 반환값이 쿼리셋이 아닌 리스트로 바뀐다.
       - 따라서 스텝이 들어가는 순간 리스트로 바뀌므로 lazy하지않다.
       - 스텝을 추가하면 그 순간 데이터베이스로 쿼리를 던진다.
+
+### DEBUG=True
+   1. settings.DEBUG=True는 쿼리 실행내역을 메모리에 누적한다.
+      - 따라서 배포서버에서 DEBUG 모드로 하면 메모리가 부족한 상황이 발생할 수 있다.
+   2. 쿼리확인
+      - django-debug-toolbar
+      - django-querycount 
+        - Ajax 내역도 출력가능 -> HTML 파일이 없어도됨
