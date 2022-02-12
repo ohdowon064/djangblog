@@ -75,4 +75,26 @@
    2. 쿼리확인
       - django-debug-toolbar
       - django-querycount 
-        - Ajax 내역도 출력가능 -> HTML 파일이 없어도됨
+        - Ajax 내역도 출력가능 -> HTML 파일이 없어도됨.
+###  ForeignKey
+   1. 관계
+      - from instagram.models import Post; ForeignKey(Post, on_delete=models.CASCADE)
+      - ForeignKey("instagram.Post", on_delete=models.CASCADE)
+   2. 유저모델
+      - from django.contrib.auth.models; models.ForeignKey(User, on_delete=models.CASCADE)
+        = models.ForeignKey("auth.User", on_delete=models.CASCADE)
+        -> 다른 유저모델이 활성화되어있을 수 있으므로 위험하다.
+        - settings.AUTH_USER_MODEL의 default는 auth.User이다.
+        - from django.conf import settings; models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+          - 이렇게 사용하는 것이 안전하다.
+   3. reverse_name
+      - default: 모델명소문자_set -> 모델명만 고려 -> 다른앱과 충돌발생가능 -> makemigrations 실패
+        - 1:n에서 1쪽이 사용하는 쿼리
+        - RelatedManger를 반환
+        - post.comment_set.all() == Comment.objects.filter(post=post)
+      - 충돌피하기
+        - related_name="+" -> reverse_name 포기
+        - related_name="앱_모델_set"으로 커스텀지정
+### OneToOne
+   1. ForeignKey(unique=True)와 유사하지만 reverse 차이
+      1. 
