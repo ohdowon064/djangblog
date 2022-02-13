@@ -97,4 +97,5 @@
         - related_name="앱_모델_set"으로 커스텀지정
 ### OneToOne
    1. ForeignKey(unique=True)와 유사하지만 reverse 차이
-      1. 
+      - FK -> profile.user_set.first() -> user
+      - O2O -> profile.user -> user; 없으면 DoesNotExist 에러발생
