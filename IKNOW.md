@@ -99,3 +99,9 @@
    1. ForeignKey(unique=True)와 유사하지만 reverse 차이
       - FK -> profile.user_set.first() -> user
       - O2O -> profile.user -> user; 없으면 DoesNotExist 에러발생
+   2. User 모델 얻기
+      - from django.contrib.auth.models import User; User.objects.all()
+      - 위 보다는 다음이 안전하다.
+        - from django.contrib.auth import get_user_model
+        - User = get_user_model()
+        - user = User.objects.first()
