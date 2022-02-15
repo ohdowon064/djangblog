@@ -105,3 +105,10 @@
         - from django.contrib.auth import get_user_model
         - User = get_user_model()
         - user = User.objects.first()
+### ManyToMany
+   1. M:N 관계
+   2. tag_set = models.ManyToManyField("Tag", blank=True) 또는 반대쪽 모델에 주면된다.
+      - blank=True를 안 주면 최소 한개이상의 Tag를 주어야한다.
+   3. 다대다 관계는 두 개의 테이블만으로 정의할 수 없다.
+      - 중간 테이블이 필요
+      - 다대다 관계 정의를 위한 중간 테이블을 장고에서 자동으로 생성해준다. 
