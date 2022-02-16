@@ -111,4 +111,20 @@
       - blank=True를 안 주면 최소 한개이상의 Tag를 주어야한다.
    3. 다대다 관계는 두 개의 테이블만으로 정의할 수 없다.
       - 중간 테이블이 필요
-      - 다대다 관계 정의를 위한 중간 테이블을 장고에서 자동으로 생성해준다. 
+      - 다대다 관계 정의를 위한 중간 테이블을 장고에서 자동으로 생성해준다.
+
+### Migration
+   1. python manage.py makemigrations <앱이름>
+   2. python manage.py migrate <앱이름>
+   3. python manage.py showmigrations <앱이름>
+   4. python manage.py sqlmigrate <앱이름> <마이그레이션이름>
+
+   - migrate하기전에 migration 파일 꼭꼭 확인하기!
+   - migration 파일은 정/역방향
+     - python manage.py migrate <앱이름> <마이그레이션이름>
+     - migration 파일까지 정/역방향으로 순차적으로 진행한다.
+     - python manage.py migrate 앱이름 zero
+       - zero를 주면 모든 마이그레이션 내역을 롤백한다.
+   
+   - 새로운 필드가 필수필드라면? -> blank/null 모두 False
+   - 하나의 feature에는 하나의 마이그레이션으로 관리하기
