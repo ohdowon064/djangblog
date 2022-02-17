@@ -128,3 +128,17 @@
    
    - 새로운 필드가 필수필드라면? -> blank/null 모두 False
    - 하나의 feature에는 하나의 마이그레이션으로 관리하기
+
+### 함수기반 뷰
+   - FBV vs CBV
+   - 함수 기반 뷰를 잘 알아야 장고 뷰를 활용하 수 있다.
+   - 1 HTTP 요청 -> 1개의 View
+   - view: urls.py/urlpatterns에 맵핑된 호출가능한 객체
+
+   - view 호출 시 인자.
+     - HttpRequest: request
+     - URL Captured Values: <int:pk>, <str:username> 등
+     - path('<int:pk>/', views.post_detail) -> 형변환 해줌
+       = re_path(r'(?P<pk>\d+)/$', views.post_detail) -> 무조건 문자열로 받음
+   
+   - view 호출의 리턴값은 반드시 HttpResponse이어야한다! 

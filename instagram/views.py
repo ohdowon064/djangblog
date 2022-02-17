@@ -13,3 +13,22 @@ def post_list(request):
         'post_list': qs,
         'q': q,
     })
+
+import pandas as pd
+from io import StringIO
+from django.http import HttpResponse
+
+def response_csv(request):
+    df = pd.DataFrame([
+        [100, 110, 120],
+        [200, 210, 220],
+        [300, 310, 320]
+    ])
+
+    io = StringIO
+    df.to_csv(io)
+    io.seek(0) # 끝에 있는 파일 커서를 처음으로 이동
+
+    response = HttpResponse(io, content_type="text/csv")
+    response["Content-Disposition"] = "attachment; filename*=utf-8''{}".format(encoded_filename)
+    return response
