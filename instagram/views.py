@@ -31,4 +31,5 @@ def response_csv(request):
 
     response = HttpResponse(io, content_type="text/csv")
     response["Content-Disposition"] = "attachment; filename*=utf-8''{}".format(encoded_filename)
+    # FileRsponse를 사용하면 header를 자동으로 달아준다.
     return response
