@@ -26,7 +26,7 @@ def response_csv(request):
     ])
 
     io = StringIO
-    df.to_csv(io)
+    df.to_csv(io) # df 내용을 StringIO io 파일에 작성
     io.seek(0) # 끝에 있는 파일 커서를 처음으로 이동
 
     response = HttpResponse(io, content_type="text/csv")
