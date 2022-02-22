@@ -141,4 +141,7 @@
      - path('<int:pk>/', views.post_detail) -> 형변환 해줌
        = re_path(r'(?P<pk>\d+)/$', views.post_detail) -> 무조건 문자열로 받음
    
-   - view 호출의 리턴값은 반드시 HttpResponse이어야한다! 
+   - view 호출의 리턴값은 반드시 HttpResponse이어야한다!
+     - HttpResponse는 filelike 객체로써 파일객체의 인터페이스를 지원한다!
+     - response.write, file.save(response) 등 가능
+   
