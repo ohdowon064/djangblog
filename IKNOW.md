@@ -143,5 +143,10 @@
    
    - view 호출의 리턴값은 반드시 HttpResponse이어야한다!
      - HttpResponse는 filelike 객체로써 파일객체의 인터페이스를 지원한다!
-     - response.write, file.save(response) 등 가능
+     - response.write, file.save(response) 등 가
+
+### URL Dispatcher
+   - 특정 URL 패턴 -> View
+   - 프로젝트/settings.py에서 최상위 URLConf 모듈을 지정
+     - ROOT_URLCONF = "프로젝트.urls"
    
