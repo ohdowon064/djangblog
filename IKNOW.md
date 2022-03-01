@@ -149,4 +149,13 @@
    - 특정 URL 패턴 -> View
    - 프로젝트/settings.py에서 최상위 URLConf 모듈을 지정
      - ROOT_URLCONF = "프로젝트.urls"
-   
+   - url 컨버터 생성해서 사용가
+
+   - 새로운 장고 앱 생성 후 작업
+     1. 앱 생성
+     2. 앱이름/urls.py 파일 생성
+        - app_name 지정 -> urls.reverse에서 앱의 네임스페이스 역할 수행   
+        - urlpatterns=[] 리스트 생성
+     3. 프로젝트/urls.py에 include 적용
+        - path("앱이름/", include("앱이름.urls"))
+     4. 프로젝트/settings.py에 INSTALLED_APPS에 앱이름 등록
